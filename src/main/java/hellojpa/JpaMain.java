@@ -24,20 +24,18 @@ public class JpaMain {
         try {
             Member member = new Member(200L, "member200");
             em.persist(member);
+//            member.setName("aaaa");
 
-            em.find(Member.class, 200L);
-            member.setName("aaaa");
+//            em.detach(member);
 
-            em.detach(member);
-
-            em.flush();
+//            em.flush();
             System.out.println("========================");
 
 
 
 //            em.clear(); //영속성 컨텍스트를 완전 초기화
 
-            em.find(Member.class, 2L);
+//            em.find(Member.class, 2L);
 //            System.out.println("findMember.id = " + findMember.getId());
 //            System.out.println("findMember.name = " + findMember.getName());
 //            em.remove(findMember);
