@@ -19,6 +19,8 @@ public class Member { //게터 세터 단축키 = alt+ins
     private Date lastModifiedDate;
     @Lob
     private String description;
+    @Transient
+    private int temp; //매핑에 추가는 안함
 
     public Long getId() {
         return id;
