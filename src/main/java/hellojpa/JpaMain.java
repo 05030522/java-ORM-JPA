@@ -22,7 +22,7 @@ public class JpaMain {
         emf.close();*/
 
         try {
-            Member member = new Member(200L, "member200");
+            Member member = new Member(1L, "member20");
             em.persist(member);
 //            member.setName("aaaa");
 
