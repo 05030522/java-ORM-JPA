@@ -12,26 +12,19 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-/*        Member member = new Member();
-        member.setId(2L);
-        member.setName("HelloB");
-
-        em.persist(member);
-        tx.commit();
-        em.close();
-        emf.close();*/
-
         try {
-            Member member = new Member(1L, "member20");
+            Member member = new Member();
+//            em.persist(member);
+////            member.setName("aaaa");
+//
+////            em.detach(member);
+//
+////            em.flush();
+//            System.out.println("========================");
+            member.setUsername("c");
+
             em.persist(member);
-//            member.setName("aaaa");
-
-//            em.detach(member);
-
-//            em.flush();
-            System.out.println("========================");
-
-
+            em.flush();
 
 //            em.clear(); //영속성 컨텍스트를 완전 초기화
 

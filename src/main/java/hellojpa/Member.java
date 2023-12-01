@@ -4,14 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "AD")
 public class Member { //게터 세터 단축키 = alt+ins
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //mysql용
     private Long id;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String username;
-    private Integer age;
-    @Enumerated(EnumType.STRING)
+
+    private int age;
+    @Enumerated(EnumType.STRING) //디폴트가 ordinal 인데 사용x
     private RoleType roleType;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
@@ -81,9 +82,9 @@ public class Member { //게터 세터 단축키 = alt+ins
     public Member() {
     }
 
-    public Member(Long id, String name){
+    public Member(Long id, String name, RoleType roleType){
         this.id=id;
         this.username=name;
-//        this.roleType=roleType;
+        this.roleType=roleType;
     }
 }
