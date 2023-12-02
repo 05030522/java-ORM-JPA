@@ -10,7 +10,6 @@ public class Member { //게터 세터 단축키 = alt+ins
     private Long id;
     @Column(name = "name", nullable = false)
     private String username;
-
     private int age;
     @Enumerated(EnumType.STRING) //디폴트가 ordinal 인데 사용x
     private RoleType roleType;
@@ -20,8 +19,8 @@ public class Member { //게터 세터 단축키 = alt+ins
     private Date lastModifiedDate;
     @Lob
     private String description;
-    @Transient
-    private int temp; //매핑에 추가는 안함
+//    @Transient
+//    private int temp; //매핑에 추가는 안함
 
     public Long getId() {
         return id;
