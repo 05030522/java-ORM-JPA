@@ -4,9 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@TableGenerator(
+        name = "MEMBER_SEQ_GENERATOR",
+        table = "MY_SEQEUNCES",
+        pkColumnValue = "MEMBER_SEQ",
+        allocationSize = 1)
 public class Member { //게터 세터 단축키 = alt+ins
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //mysql용
+    @GeneratedValue(strategy = GenerationType.TABLE,
+                    generator = "MEMBER_SEQ_GENERATOR") //기본키 매핑
     private Long id;
     @Column(name = "name", nullable = false)
     private String username;
