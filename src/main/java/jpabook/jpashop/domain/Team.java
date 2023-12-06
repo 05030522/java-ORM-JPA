@@ -4,17 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.print.attribute.standard.MediaSize;
 
 @Entity
-public class Member {
+
+public class Team {
     @Id @GeneratedValue
-//    @Column(name = "MEMBER_ID")
-    private Long id;
-    @Column(name = "USERNAME")
-    private String name;
     @Column(name = "TEAM_ID")
-    private Long teamId;
+    private Long id;
+    private String name;
 
     public Long getId() {
         return id;
@@ -30,13 +27,5 @@ public class Member {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Long getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(Long teamId) {
-        this.teamId = teamId;
     }
 }
