@@ -23,13 +23,19 @@ public class JpaMain {
             //멤버 저장
             Member member = new Member();
             member.setName("member1");
-            member.setTeamId(team.getId());
+//            member.setTeamId(team.getId());
+//            em.persist(member);
+            member.setTeam(team);
             em.persist(member);
+
+            em.flush();
+            em.clear();
 
             Member findMember = em.find(Member.class, member.getId());
 
-            Long findTeamId = findMember.getTeamId();
-            em.find(Team.class, findTeamId);
+            Team findTeam = findMember.getTeam();
+            System.out.println("findTeam = " + findTeam.getName());
+//            Team findTeam = em.find(Team.class, findTeamId);
 
             tx.commit();
         }catch (Exception e){
