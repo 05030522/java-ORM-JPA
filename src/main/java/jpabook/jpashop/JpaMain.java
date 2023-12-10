@@ -26,7 +26,10 @@ public class JpaMain {
             member.setTeamId(team.getId());
             em.persist(member);
 
-            Member findMember = em.find(Class, member.getId());
+            Member findMember = em.find(Member.class, member.getId());
+
+            Long findTeamId = findMember.getTeamId();
+            em.find(Team.class, findTeamId);
 
             tx.commit();
         }catch (Exception e){
