@@ -13,6 +13,7 @@ public class Member {
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
     @ManyToOne
+//    @ManyToOne(fetch = FetchType.LAZY) //멤버랑 팀이랑 쿼리가 분리해서 나가는 지연로딩 전략
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 

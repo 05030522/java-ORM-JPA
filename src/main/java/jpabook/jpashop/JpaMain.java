@@ -37,6 +37,9 @@ public class JpaMain {
             System.out.println("findTeam = " + findTeam.getName());
 //            Team findTeam = em.find(Team.class, findTeamId);
 
+            Team newTeam = em.find(Team.class, 100L);
+            findMember.setTeam(newTeam);
+
             tx.commit();
         }catch (Exception e){
             tx.rollback();
