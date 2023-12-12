@@ -16,23 +16,34 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            //팀 저장
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
-
-            //멤버 저장
-            Member member = new Member();
+            Member member = new Member(); //멤버 저장
             member.setName("member1");
-//            member.setTeamId(team.getId());
-//            em.persist(member);
-            member.setTeam(team);
             em.persist(member);
+
+            Team team = new Team(); //팀 저장
+            team.setName("TeamA");
+//            team.getMembers().add(member); //가짜
+            em.persist(team);
+            member.setTeam(team); //주인
 
             em.flush();
             em.clear();
 
-            Member findMember = em.find(Member.class, member.getId());
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
+
+            for (Member m : members) { //iter
+                System.out.println("m = " +  m.getName());
+            }
+
+//            Member member = new Member();
+//            member.setName("member1");
+////            member.setTeamId(team.getId());
+////            em.persist(member);
+//            member.setTeam(team);
+//            em.persist(member);
+
+//            Member findMember = em.find(Member.class, member.getId());
 
 //            Team findTeam = findMember.getTeam();
 ////            findTeam.getMember();
@@ -42,11 +53,10 @@ public class JpaMain {
 //            Team newTeam = em.find(Team.class, 100L);
 //            findMember.setTeam(newTeam);
 
-            List<Member> members = findMember.getTeam().getMembers();
-            for (Member m : members) {
-                System.out.println("m = " + m.getName());
-            }
-
+//            List<Member> members = findMember.getTeam().getMembers();
+//            for (Member m : members) {
+//                System.out.println("m = " + m.getName());
+//            }
             tx.commit();
         }catch (Exception e){
             tx.rollback();
