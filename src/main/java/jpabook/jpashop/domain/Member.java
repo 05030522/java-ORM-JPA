@@ -12,10 +12,19 @@ public class Member {
     private String name;
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
+    private int age;
+    //    @ManyToOne(fetch = FetchType.LAZY) //멤버랑 팀이랑 쿼리가 분리해서 나가는 지연로딩 전략
     @ManyToOne
-//    @ManyToOne(fetch = FetchType.LAZY) //멤버랑 팀이랑 쿼리가 분리해서 나가는 지연로딩 전략
     @JoinColumn(name = "TEAM_ID")
     private Team team;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public Long getId() {
         return id;
