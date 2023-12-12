@@ -1,9 +1,6 @@
 package jpabook.jpashop.domain;
 
-import javax.naming.Name;
 import javax.persistence.*;
-import java.security.Principal;
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 

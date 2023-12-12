@@ -1,7 +1,6 @@
 package jpabook.jpashop.domain;
 
 import javax.persistence.*;
-import javax.print.attribute.standard.MediaSize;
 
 @Entity
 public class Member {
