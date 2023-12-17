@@ -1,12 +1,8 @@
 package jpabasic1;
 
-import jpabook.jpashop.domain.Member;
-
-import javax.management.NotificationEmitter;
 import javax.persistence.*;
-import javax.print.attribute.standard.MediaSize;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
 public class O {
