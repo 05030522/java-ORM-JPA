@@ -7,10 +7,16 @@ public class O_I {
     @Id @GeneratedValue
     @Column(name = "O_I_ID")
     private Long id;
-    @Column(name = "O_ID")
-    private Long orderId;
-    @Column(name = "I_ID")
-    private Long itemId;
+//    @Column(name = "O_ID")
+//    private Long orderId;
+    @ManyToOne
+    @JoinColumn(name = "O_ID")
+    private O oder;
+//    @Column(name = "I_ID")
+//    private Long itemId;
+    @ManyToOne
+    @JoinColumn(name = "I_ID")
+    private I item;
     private int orderPrice;
     private int count;
 
@@ -22,20 +28,20 @@ public class O_I {
         this.id = id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public O getOder() {
+        return oder;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOder(O oder) {
+        this.oder = oder;
     }
 
-    public Long getItemId() {
-        return itemId;
+    public I getItem() {
+        return item;
     }
 
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
+    public void setItem(I item) {
+        this.item = item;
     }
 
     public int getOrderPrice() {

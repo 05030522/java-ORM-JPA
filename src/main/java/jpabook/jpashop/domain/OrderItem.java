@@ -1,5 +1,7 @@
 package jpabook.jpashop.domain;
 
+import jpabasic1.O;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -55,5 +57,8 @@ public class OrderItem {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public void setOrder(O o) {
     }
 }

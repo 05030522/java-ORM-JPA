@@ -1,10 +1,15 @@
 package jpabasic1;
 
+import jpabook.jpashop.domain.OrderItem;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
+@Table(name = "ORDERS")
 public class O {
     @Id @GeneratedValue
     @Column(name = "O_ID")
@@ -14,7 +19,8 @@ public class O {
     @ManyToOne
     @JoinColumn(name = "M_ID")
     private M m;
-
+    @OneToMany(mappedBy = "O_ID")
+    private List<OrderItem> orderItems = new ArrayList<>();
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
     private O_S status;
@@ -49,5 +55,10 @@ public class O {
 
     public void setStatus(O_S status) {
         this.status = status;
+    }
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
     }
 }
