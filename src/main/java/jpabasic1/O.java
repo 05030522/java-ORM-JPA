@@ -19,8 +19,8 @@ public class O {
     @ManyToOne
     @JoinColumn(name = "M_ID")
     private M m;
-    @OneToMany(mappedBy = "O_ID")
-    private List<OrderItem> orderItems = new ArrayList<>();
+    @OneToMany(mappedBy = "O_I_ID")
+    private List<O_I> orderItems = new ArrayList<>();
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
     private O_S status;
@@ -57,7 +57,7 @@ public class O {
         this.status = status;
     }
 
-    public void addOrderItem(OrderItem orderItem) {
+    public void addOrderItem(O_I orderItem) {
         orderItems.add(orderItem);
         orderItem.setOrder(this);
     }

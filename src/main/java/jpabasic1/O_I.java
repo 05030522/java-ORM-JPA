@@ -59,4 +59,7 @@ public class O_I {
     public void setCount(int count) {
         this.count = count;
     }
+
+    public void setOrder(O o) {
+    }
 }
