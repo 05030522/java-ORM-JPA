@@ -1,5 +1,7 @@
 package jpabook.jpashop.domain;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,18 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "TEAM_ID",insertable = false, updatable = false)
     private Team team;
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
+    public Locker getLocker() {
+        return locker;
+    }
+
+    public void setLocker(Locker locker) {
+        this.locker = locker;
+    }
 
     public int getAge() {
         return age;
