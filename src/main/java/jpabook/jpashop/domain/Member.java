@@ -14,7 +14,7 @@ public class Member {
     private int age;
     //    @ManyToOne(fetch = FetchType.LAZY) //멤버랑 팀이랑 쿼리가 분리해서 나가는 지연로딩 전략
     @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
+    @JoinColumn(name = "TEAM_ID",insertable = false, updatable = false)
     private Team team;
 
     public int getAge() {

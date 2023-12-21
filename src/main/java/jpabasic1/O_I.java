@@ -11,7 +11,7 @@ public class O_I {
 //    private Long orderId;
     @ManyToOne
     @JoinColumn(name = "O_ID")
-    private O oder;
+    private O o;
 //    @Column(name = "I_ID")
 //    private Long itemId;
     @ManyToOne
@@ -28,12 +28,12 @@ public class O_I {
         this.id = id;
     }
 
-    public O getOder() {
-        return oder;
+    public O getO() {
+        return o;
     }
 
-    public void setOder(O oder) {
-        this.oder = oder;
+    public void setO(O o) {
+        this.o = o;
     }
 
     public I getItem() {
@@ -60,6 +60,4 @@ public class O_I {
         this.count = count;
     }
 
-    public void setOrder(O o) {
-    }
 }

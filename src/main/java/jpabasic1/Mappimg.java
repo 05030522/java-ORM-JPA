@@ -20,7 +20,7 @@ public class Mappimg {
             em.persist(order);
 
             O_I orderItem = new O_I();
-            orderItem.setOder(order);
+            orderItem.setO(order);
 
             em.persist(orderItem);
 
