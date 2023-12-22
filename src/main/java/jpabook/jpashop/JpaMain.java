@@ -1,8 +1,5 @@
 package jpabook.jpashop;
 
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.domain.Team;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -15,15 +12,7 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Member member = new Member();
-            member.setName("1member");
-            em.persist(member);
 
-            Team team = new Team();
-            team.setName("1group");
-            team.getMembers().add(member);
-
-            em.persist(team);
 
             tx.commit();
         }catch (Exception e){

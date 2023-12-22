@@ -1,8 +1,4 @@
 package jpabook.jpashop.domain;
-
-import javassist.expr.NewArray;
-import org.springframework.beans.factory.annotation.Value;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,40 +6,14 @@ import java.util.List;
 @Entity
 public class Member {
     @Id @GeneratedValue
-//    @Column(name = "MEMBER_ID")
+    @Column(name = "MEMBER_ID")
     private Long id;
-    @Column(name = "USERNAME")
     private String name;
-//    @Column(name = "TEAM_ID")
-//    private Long teamId;
-    private int age;
-    //    @ManyToOne(fetch = FetchType.LAZY) //멤버랑 팀이랑 쿼리가 분리해서 나가는 지연로딩 전략
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID",insertable = false, updatable = false)
-    private Team team;
-
-    @OneToOne
-    @JoinColumn(name = "LOCKER_ID")
-    private Locker locker;
-
+    private String city;
+    private String street;
+    private String zipcode;
     @OneToMany(mappedBy = "member")
-    private List<MemberProduct> memberProducts;
-
-    public Locker getLocker() {
-        return locker;
-    }
-
-    public void setLocker(Locker locker) {
-        this.locker = locker;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+    private List<Order> orders = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -61,22 +31,35 @@ public class Member {
         this.name = name;
     }
 
-    public Team getTeam() {
-        return team;
+    public String getCity() {
+        return city;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", team=" + team +
-                '}';
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

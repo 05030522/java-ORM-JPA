@@ -4,21 +4,19 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "ORDERS")
 public class Order {
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
-    @Column(name = "MEMBER_ID") //외래키를 객체에 그대로 가져와서 객체지향적이지 않음
-    private Long memberId;
-//    private Member member;
-//    public Member getMember() {
-//        return member;
-//    }
-
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
+    private Member member;
     private LocalDateTime orderDate; //ORDER_DATE , order_date
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;
 
     public Long getId() {
         return id;
@@ -28,12 +26,12 @@ public class Order {
         this.id = id;
     }
 
-    public Long getMemberId() {
-        return memberId;
+    public Member getMember() {
+        return member;
     }
 
-    public void setMemberId(Long memberId) {
-        this.memberId = memberId;
+    public void setMember(Member member) {
+        this.member = member;
     }
 
     public LocalDateTime getOrderDate() {
@@ -52,4 +50,11 @@ public class Order {
         this.status = status;
     }
 
+    public Delivery getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+    }
 }

@@ -1,22 +1,19 @@
-package jpabasic1;
-
-import jpabook.jpashop.domain.Order;
+package jpabook.jpashop.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-public class M {
+public class Delivery {
     @Id @GeneratedValue
-    @Column(name = "M_ID")
+    @Column(name = "DELIVERY_ID")
     private Long id;
-    private String nema;
+    @OneToOne(mappedBy = "delivery")
+    private Order order;
     private String city;
     private String street;
-    private int zipcode;
-    @OneToMany(mappedBy = "m")
-    private List<O> orders = new ArrayList<>();
+    private String zipcode;
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
 
     public Long getId() {
         return id;
@@ -26,12 +23,12 @@ public class M {
         this.id = id;
     }
 
-    public String getNema() {
-        return nema;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setNema(String nema) {
-        this.nema = nema;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public String getCity() {
@@ -50,11 +47,19 @@ public class M {
         this.street = street;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public DeliveryStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(DeliveryStatus status) {
+        this.status = status;
     }
 }
