@@ -1,4 +1,6 @@
-package jpabook.jpashop;
+package hellojpa;
+
+import jpabook.Movie;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +14,13 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+            Movie movie = new Movie();
+            movie.setDirector("aaa");
+            movie.setActor("bbb");
+            movie.setName("엄마는외계인");
+            movie.setPrice(10000);
 
+            em.persist(movie);
 
             tx.commit();
         }catch (Exception e){
