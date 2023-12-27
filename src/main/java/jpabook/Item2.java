@@ -1,11 +1,14 @@
 package jpabook;
 
+import org.h2.schema.Sequence;
+
 import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
 public class Item2 {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
     private int price;
