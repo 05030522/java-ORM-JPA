@@ -1,6 +1,4 @@
-package hellojpa;
-
-import jpabook.Movie;
+package jpabook;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,6 +13,7 @@ public class JpaMain {
         tx.begin();
         try {
             Movie movie = new Movie();
+
             movie.setDirector("aaa");
             movie.setActor("bbb");
             movie.setName("엄마는외계인");

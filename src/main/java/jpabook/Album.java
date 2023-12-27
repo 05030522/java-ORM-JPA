@@ -3,7 +3,7 @@ package jpabook;
 import javax.persistence.Entity;
 
 @Entity
-public class Album extends Item {
+public class Album extends Item2{
     private String artist;
 
     public String getArtist() {
